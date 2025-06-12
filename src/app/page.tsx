@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -26,6 +27,13 @@ export default function Home() {
         </ol>
 
         <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <Link
+            className="flex h-10 items-center justify-center gap-2 rounded-full border border-solid border-transparent bg-blue-500 px-4 text-sm font-medium text-white transition-colors hover:bg-blue-600 sm:h-12 sm:w-auto sm:px-5 sm:text-base"
+            href="/https-examples"
+          >
+            HTTP请求封装示例
+          </Link>
+
           <a
             className="bg-foreground text-background flex h-10 items-center justify-center gap-2 rounded-full border border-solid border-transparent px-4 text-sm font-medium transition-colors hover:bg-[#383838] sm:h-12 sm:w-auto sm:px-5 sm:text-base dark:hover:bg-[#ccc]"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
