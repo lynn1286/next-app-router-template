@@ -26,11 +26,14 @@
     "start:uat": "env-cmd -e uat next start"
   },
   "dependencies": {
+    "@types/uuid": "^10.0.0",
     "cookies-next": "^6.0.0",
     "nanoid": "^5.1.5",
     "next": "15.3.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "uuid": "^11.1.0",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",

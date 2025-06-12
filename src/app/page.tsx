@@ -58,6 +58,31 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+
+        {/* Zustand 示例链接 */}
+        <div className="mt-8 w-full">
+          <h2 className="mb-6 text-center text-2xl font-bold">
+            Zustand 状态管理示例 (按 Next.js 最佳实践)
+          </h2>
+          <div className="flex flex-col justify-center gap-4 md:flex-row">
+            <Link
+              href="/zustand"
+              className="rounded-lg bg-blue-500 px-6 py-3 text-center text-white transition-colors hover:bg-blue-600"
+            >
+              基础 Zustand 示例
+            </Link>
+            <Link
+              href="/zustand/advanced"
+              className="rounded-lg bg-green-500 px-6 py-3 text-center text-white transition-colors hover:bg-green-600"
+            >
+              高级 Zustand 示例
+            </Link>
+          </div>
+          <p className="mt-4 text-center text-sm text-gray-500">
+            这些示例展示了如何在 Next.js 中按照最佳实践集成 Zustand
+            进行状态管理，避免全局状态共享问题
+          </p>
+        </div>
       </main>
       <footer className="row-start-3 flex flex-wrap items-center justify-center gap-[24px]">
         <a
