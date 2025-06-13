@@ -8,7 +8,7 @@ const Header = () => {
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [title, setTitle] = useState('Apple风格流程图');
+  const [title, setTitle] = useState('流程图制作工具');
   const [isEditing, setIsEditing] = useState(false);
   const [editableTitle, setEditableTitle] = useState(title);
 
@@ -51,6 +51,13 @@ const Header = () => {
     );
   };
 
+  const clearCanvas = () => {
+    if (window.confirm('确定要清空画布吗？此操作不可撤销。')) {
+      reactFlowInstance.setNodes([]);
+      reactFlowInstance.setEdges([]);
+    }
+  };
+
   return (
     <div className="flex items-center justify-between border-b bg-white p-4">
       <div className="flex-1">
@@ -73,12 +80,20 @@ const Header = () => {
           </h1>
         )}
       </div>
-      <button
-        onClick={saveFlow}
-        className="rounded bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600"
-      >
-        保存
-      </button>
+      <div className="flex gap-2">
+        <button
+          onClick={clearCanvas}
+          className="rounded border border-gray-300 bg-white px-4 py-2 text-gray-700 transition-colors hover:bg-gray-100"
+        >
+          清空画布
+        </button>
+        <button
+          onClick={saveFlow}
+          className="rounded bg-blue-500 px-4 py-2 text-white transition-colors hover:bg-blue-600"
+        >
+          保存
+        </button>
+      </div>
     </div>
   );
 };
