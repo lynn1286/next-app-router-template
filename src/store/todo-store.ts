@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import { createStore } from 'zustand/vanilla';
 
 export interface Todo {
@@ -29,7 +29,7 @@ export const createTodoStore = (initState: TodoState = defaultInitState) => {
     ...initState,
     addTodo: (text) =>
       set((state) => ({
-        todos: [...state.todos, { id: uuidv4(), text, completed: false }],
+        todos: [...state.todos, { id: nanoid(), text, completed: false }],
       })),
     toggleTodo: (id) =>
       set((state) => ({

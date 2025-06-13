@@ -71,12 +71,6 @@ export default function Home() {
             >
               基础 Zustand 示例
             </Link>
-            <Link
-              href="/zustand/advanced"
-              className="rounded-lg bg-green-500 px-6 py-3 text-center text-white transition-colors hover:bg-green-600"
-            >
-              高级 Zustand 示例
-            </Link>
           </div>
           <p className="mt-4 text-center text-sm text-gray-500">
             这些示例展示了如何在 Next.js 中按照最佳实践集成 Zustand
