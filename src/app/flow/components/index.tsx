@@ -22,18 +22,13 @@ import Controls from './controls';
 import { nodeTypes } from './node-types';
 import Sidebar from './sidebar';
 
-// 自定义节点数据类型
-type NodeData = {
-  label?: string;
-  isHovered?: boolean;
-  [key: string]: unknown;
-};
-
 const Flow = () => {
+  const reactFlowInstance = useReactFlow();
+
   const [nodes, setNodes, onNodesChange] = useNodesState([] as Node[]);
   const [edges, setEdges, onEdgesChange] = useEdgesState([] as Edge[]);
+
   const reactFlowWrapper = useRef<HTMLDivElement>(null);
-  const reactFlowInstance = useReactFlow();
 
   // 添加连线状态跟踪
   const [isConnecting, setIsConnecting] = useState(false);

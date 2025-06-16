@@ -3,7 +3,11 @@
 import { Handle, Position } from '@xyflow/react';
 import { ShapeNodeProps, getHandleStyle } from './types';
 
-export function TriangleNode({ data, selected, notHanle }: ShapeNodeProps) {
+export function RightIrregularRectangleNode({
+  data,
+  selected,
+  notHanle,
+}: ShapeNodeProps) {
   const style = getHandleStyle(selected, data.isHovered);
 
   return (
@@ -22,8 +26,8 @@ export function TriangleNode({ data, selected, notHanle }: ShapeNodeProps) {
         <svg width="100%" height="100%" className="absolute inset-0">
           <g transform="translate(2, 2)">
             <path
-              d="M0,36 L18,0 L36,36 Z"
-              fill={selected ? 'url(#triangle-gradient)' : '#ffffff'}
+              d="M0,0 L32.4,0 L36,18 L32.4,36 L0,36 Z"
+              fill={selected ? 'url(#right-irregular-gradient)' : '#ffffff'}
               stroke={selected ? '#0071e3' : '#e5e5e5'}
               strokeWidth="1.5"
             />
@@ -31,7 +35,7 @@ export function TriangleNode({ data, selected, notHanle }: ShapeNodeProps) {
           {/* 渐变定义 */}
           <defs>
             <linearGradient
-              id="triangle-gradient"
+              id="right-irregular-gradient"
               x1="0%"
               y1="0%"
               x2="100%"

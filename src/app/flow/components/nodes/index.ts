@@ -1,11 +1,12 @@
 export { CircleNode } from './circle-node';
+export { CrossNode } from './cross-node';
 export { CylinderNode } from './cylinder-node';
 export { DiamondNode } from './diamond-node';
+export { IrregularRectangleNode } from './irregular-rectangle-node';
+export { NormalSquareNode } from './normal-square-node';
 export { ParallelogramNode } from './parallelogram-node';
-export { PlusNode } from './plus-node';
-export { RectangleNode } from './rectangle-node';
+export { RightIrregularRectangleNode } from './right-irregular-rectangle-node';
 export { SquareNode } from './square-node';
-export { TrapezoidNode } from './trapezoid-node';
 export { TriangleNode } from './triangle-node';
 
 export * from './types';

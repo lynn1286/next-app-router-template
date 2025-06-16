@@ -3,7 +3,7 @@
 import { Handle, Position } from '@xyflow/react';
 import { ShapeNodeProps, getHandleStyle } from './types';
 
-export function TriangleNode({ data, selected, notHanle }: ShapeNodeProps) {
+export function CrossNode({ data, selected, notHanle }: ShapeNodeProps) {
   const style = getHandleStyle(selected, data.isHovered);
 
   return (
@@ -20,18 +20,16 @@ export function TriangleNode({ data, selected, notHanle }: ShapeNodeProps) {
         }}
       >
         <svg width="100%" height="100%" className="absolute inset-0">
-          <g transform="translate(2, 2)">
-            <path
-              d="M0,36 L18,0 L36,36 Z"
-              fill={selected ? 'url(#triangle-gradient)' : '#ffffff'}
-              stroke={selected ? '#0071e3' : '#e5e5e5'}
-              strokeWidth="1.5"
-            />
-          </g>
+          <path
+            d="M13.3,0 L26.6,0 L26.6,13.3 L40,13.3 L40,26.6 L26.6,26.6 L26.6,40 L13.3,40 L13.3,26.6 L0,26.6 L0,13.3 L13.3,13.3 Z"
+            fill={selected ? 'url(#cross-gradient)' : '#ffffff'}
+            stroke={selected ? '#0071e3' : '#e5e5e5'}
+            strokeWidth="1.5"
+          />
           {/* 渐变定义 */}
           <defs>
             <linearGradient
-              id="triangle-gradient"
+              id="cross-gradient"
               x1="0%"
               y1="0%"
               x2="100%"

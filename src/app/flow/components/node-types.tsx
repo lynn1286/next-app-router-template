@@ -3,13 +3,14 @@
 import { NodeTypes } from '@xyflow/react';
 import {
   CircleNode,
+  CrossNode,
   CylinderNode,
   DiamondNode,
+  IrregularRectangleNode,
+  NormalSquareNode,
   ParallelogramNode,
-  PlusNode,
-  RectangleNode,
+  RightIrregularRectangleNode,
   SquareNode,
-  TrapezoidNode,
   TriangleNode,
 } from './nodes';
 
@@ -18,11 +19,12 @@ export const nodeTypes: NodeTypes = {
   // 自定义形状节点
   circleNode: CircleNode,
   squareNode: SquareNode,
-  rectangleNode: RectangleNode,
   diamondNode: DiamondNode,
   triangleNode: TriangleNode,
   parallelogramNode: ParallelogramNode,
   cylinderNode: CylinderNode,
-  trapezoidNode: TrapezoidNode,
-  plusNode: PlusNode,
+  normalSquareNode: NormalSquareNode,
+  irregularRectangleNode: IrregularRectangleNode,
+  rightIrregularRectangleNode: RightIrregularRectangleNode,
+  crossNode: CrossNode,
 };

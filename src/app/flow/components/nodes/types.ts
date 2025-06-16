@@ -5,6 +5,7 @@ export interface ShapeNodeProps {
     [key: string]: unknown;
   };
   selected: boolean;
+  notHanle?: boolean;
 }
 
 // Apple风格颜色

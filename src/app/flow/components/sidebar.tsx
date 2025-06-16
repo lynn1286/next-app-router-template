@@ -3,13 +3,14 @@
 import { DragEvent, useEffect, useState } from 'react';
 import {
   CircleNode,
+  CrossNode,
   CylinderNode,
   DiamondNode,
+  IrregularRectangleNode,
+  NormalSquareNode,
   ParallelogramNode,
-  PlusNode,
-  RectangleNode,
+  RightIrregularRectangleNode,
   SquareNode,
-  TrapezoidNode,
   TriangleNode,
 } from './nodes';
 
@@ -85,7 +86,6 @@ export const Sidebar = () => {
         }}
       >
         <div className="flex w-64 flex-col overflow-hidden rounded-2xl bg-white/90 backdrop-blur-md">
-          {/* 标题栏 */}
           <div className="flex items-center justify-between border-b border-gray-100 p-4">
             <h2 className="text-lg font-medium text-gray-900">形状库</h2>
             <button
@@ -108,26 +108,23 @@ export const Sidebar = () => {
             </button>
           </div>
 
-          {/* 节点网格 */}
           <div className="grid grid-cols-2 gap-4 p-4">
-            {/* 圆形 */}
             <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
               draggable
               onDragStart={(event) => onDragStart(event, 'circleNode', '圆形')}
               onDragEnd={onDragEnd}
             >
               <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <CircleNode data={{}} selected={false} />
+                <div className="scale-85 transform">
+                  <CircleNode data={{}} selected={false} notHanle />
                 </div>
-                <span className="mt-1 text-xs text-gray-600">圆形</span>
+                <span className="mt-2 text-sm text-gray-600">圆形</span>
               </div>
             </div>
 
-            {/* 正方形 */}
             <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
               draggable
               onDragStart={(event) =>
                 onDragStart(event, 'squareNode', '正方形')
@@ -135,82 +132,29 @@ export const Sidebar = () => {
               onDragEnd={onDragEnd}
             >
               <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <SquareNode data={{}} selected={false} />
+                <div className="scale-85 transform">
+                  <SquareNode data={{}} selected={false} notHanle />
                 </div>
-                <span className="mt-1 text-xs text-gray-600">正方形</span>
+                <span className="mt-2 text-sm text-gray-600">正方形</span>
               </div>
             </div>
 
-            {/* 矩形 */}
             <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
-              draggable
-              onDragStart={(event) =>
-                onDragStart(event, 'rectangleNode', '矩形')
-              }
-              onDragEnd={onDragEnd}
-            >
-              <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <RectangleNode data={{}} selected={false} />
-                </div>
-                <span className="mt-1 text-xs text-gray-600">矩形</span>
-              </div>
-            </div>
-
-            {/* 梯形 */}
-            <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
-              draggable
-              onDragStart={(event) =>
-                onDragStart(event, 'trapezoidNode', '梯形')
-              }
-              onDragEnd={onDragEnd}
-            >
-              <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <TrapezoidNode data={{}} selected={false} />
-                </div>
-                <span className="mt-1 text-xs text-gray-600">梯形</span>
-              </div>
-            </div>
-
-            {/* 菱形 */}
-            <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
               draggable
               onDragStart={(event) => onDragStart(event, 'diamondNode', '菱形')}
               onDragEnd={onDragEnd}
             >
               <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <DiamondNode data={{}} selected={false} />
+                <div className="scale-85 transform">
+                  <DiamondNode data={{}} selected={false} notHanle />
                 </div>
-                <span className="mt-1 text-xs text-gray-600">菱形</span>
+                <span className="mt-2 text-sm text-gray-600">菱形</span>
               </div>
             </div>
 
-            {/* 平行四边形 */}
             <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
-              draggable
-              onDragStart={(event) =>
-                onDragStart(event, 'parallelogramNode', '平行四边形')
-              }
-              onDragEnd={onDragEnd}
-            >
-              <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <ParallelogramNode data={{}} selected={false} />
-                </div>
-                <span className="mt-1 text-xs text-gray-600">平行四边形</span>
-              </div>
-            </div>
-
-            {/* 圆柱体 */}
-            <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
               draggable
               onDragStart={(event) =>
                 onDragStart(event, 'cylinderNode', '圆柱体')
@@ -218,16 +162,15 @@ export const Sidebar = () => {
               onDragEnd={onDragEnd}
             >
               <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <CylinderNode data={{}} selected={false} />
+                <div className="scale-85 transform">
+                  <CylinderNode data={{}} selected={false} notHanle />
                 </div>
-                <span className="mt-1 text-xs text-gray-600">圆柱体</span>
+                <span className="mt-2 text-sm text-gray-600">圆柱体</span>
               </div>
             </div>
 
-            {/* 三角形 */}
             <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
               draggable
               onDragStart={(event) =>
                 onDragStart(event, 'triangleNode', '三角形')
@@ -235,32 +178,104 @@ export const Sidebar = () => {
               onDragEnd={onDragEnd}
             >
               <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <TriangleNode data={{}} selected={false} />
+                <div className="scale-85 transform">
+                  <TriangleNode data={{}} selected={false} notHanle />
                 </div>
-                <span className="mt-1 text-xs text-gray-600">三角形</span>
+                <span className="mt-2 text-sm text-gray-600">三角形</span>
               </div>
             </div>
 
-            {/* 加号 */}
             <div
-              className="cursor-grab rounded-xl bg-gray-50 p-2 transition-all hover:bg-gray-100 hover:shadow-sm"
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
               draggable
-              onDragStart={(event) => onDragStart(event, 'plusNode', '加号')}
+              onDragStart={(event) => onDragStart(event, 'crossNode', '十字形')}
               onDragEnd={onDragEnd}
             >
               <div className="flex flex-col items-center">
-                <div className="scale-75 transform">
-                  <PlusNode data={{}} selected={false} />
+                <div className="scale-85 transform">
+                  <CrossNode data={{}} selected={false} notHanle />
                 </div>
-                <span className="mt-1 text-xs text-gray-600">加号</span>
+                <span className="mt-2 text-sm text-gray-600">十字形</span>
+              </div>
+            </div>
+
+            <div
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
+              draggable
+              onDragStart={(event) =>
+                onDragStart(event, 'normalSquareNode', '方形')
+              }
+              onDragEnd={onDragEnd}
+            >
+              <div className="flex flex-col items-center">
+                <div className="scale-85 transform">
+                  <NormalSquareNode data={{}} selected={false} notHanle />
+                </div>
+                <span className="mt-2 text-sm text-gray-600">方形</span>
+              </div>
+            </div>
+
+            <div
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
+              draggable
+              onDragStart={(event) =>
+                onDragStart(event, 'parallelogramNode', '平行四边形')
+              }
+              onDragEnd={onDragEnd}
+            >
+              <div className="flex flex-col items-center">
+                <div className="scale-85 transform">
+                  <ParallelogramNode data={{}} selected={false} notHanle />
+                </div>
+                <span className="mt-2 text-sm text-gray-600">平行四边形</span>
+              </div>
+            </div>
+
+            <div
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
+              draggable
+              onDragStart={(event) =>
+                onDragStart(event, 'irregularRectangleNode', '不规则矩形')
+              }
+              onDragEnd={onDragEnd}
+            >
+              <div className="flex flex-col items-center">
+                <div className="scale-85 transform">
+                  <IrregularRectangleNode data={{}} selected={false} notHanle />
+                </div>
+                <span className="mt-2 text-sm text-gray-600">不规则矩形</span>
+              </div>
+            </div>
+
+            <div
+              className="cursor-grab rounded-xl bg-gray-50 p-3 transition-all hover:bg-gray-100 hover:shadow-sm"
+              draggable
+              onDragStart={(event) =>
+                onDragStart(
+                  event,
+                  'rightIrregularRectangleNode',
+                  '右侧不规则矩形',
+                )
+              }
+              onDragEnd={onDragEnd}
+            >
+              <div className="flex flex-col items-center">
+                <div className="scale-85 transform">
+                  <RightIrregularRectangleNode
+                    data={{}}
+                    selected={false}
+                    notHanle
+                  />
+                </div>
+                <span className="mt-2 text-sm text-gray-600">
+                  右侧不规则矩形
+                </span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 打开侧边栏的按钮 */}
       {!isOpen && (
         <button
           onClick={toggleSidebar}
