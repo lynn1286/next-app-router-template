@@ -9,7 +9,10 @@ export function CrossNode({ data, selected, notHanle }: ShapeNodeProps) {
   return (
     <div
       className="flex items-center justify-center"
-      style={{ width: '40px', height: '40px' }}
+      style={{
+        width: !notHanle ? '120px' : '40px',
+        height: !notHanle ? '120px' : '40px',
+      }}
     >
       <div
         className="relative h-full w-full"
@@ -19,7 +22,13 @@ export function CrossNode({ data, selected, notHanle }: ShapeNodeProps) {
             : 'drop-shadow(0 3px 8px rgba(0, 0, 0, 0.08))',
         }}
       >
-        <svg width="100%" height="100%" className="absolute inset-0">
+        <svg
+          width="100%"
+          height="100%"
+          className="absolute inset-0"
+          viewBox="0 0 40 40"
+          preserveAspectRatio="xMidYMid meet"
+        >
           <path
             d="M13.3,0 L26.6,0 L26.6,13.3 L40,13.3 L40,26.6 L26.6,26.6 L26.6,40 L13.3,40 L13.3,26.6 L0,26.6 L0,13.3 L13.3,13.3 Z"
             fill={selected ? 'url(#cross-gradient)' : '#ffffff'}

@@ -13,7 +13,10 @@ export function IrregularRectangleNode({
   return (
     <div
       className="flex items-center justify-center"
-      style={{ width: '40px', height: '40px' }}
+      style={{
+        width: !notHanle ? '120px' : '40px',
+        height: !notHanle ? '120px' : '40px',
+      }}
     >
       <div
         className="relative h-full w-full"
@@ -23,7 +26,13 @@ export function IrregularRectangleNode({
             : 'drop-shadow(0 3px 8px rgba(0, 0, 0, 0.08))',
         }}
       >
-        <svg width="100%" height="100%" className="absolute inset-0">
+        <svg
+          width="100%"
+          height="100%"
+          className="absolute inset-0"
+          viewBox="0 0 40 40"
+          preserveAspectRatio="xMidYMid meet"
+        >
           <g transform="translate(2, 2)">
             <path
               d="M0,18 L3.6,0 L32.4,0 L36,18 L32.4,36 L3.6,36 Z"
