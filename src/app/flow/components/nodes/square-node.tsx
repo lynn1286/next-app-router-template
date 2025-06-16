@@ -1,6 +1,7 @@
 'use client';
 
-import { Handle, Position } from '@xyflow/react';
+import { Position } from '@xyflow/react';
+import { CustomHandle } from './custom-handle';
 import { ShapeNodeProps, getHandleStyle } from './types';
 
 export function SquareNode({ data, selected, notHanle }: ShapeNodeProps) {
@@ -29,18 +30,16 @@ export function SquareNode({ data, selected, notHanle }: ShapeNodeProps) {
           viewBox="0 0 40 40"
           preserveAspectRatio="xMidYMid meet"
         >
-          <g transform="translate(2, 2)">
-            <rect
-              x="0"
-              y="0"
-              rx="7"
-              width="36"
-              height="36"
-              fill={selected ? 'url(#square-gradient)' : '#ffffff'}
-              stroke={selected ? '#0071e3' : '#e5e5e5'}
-              strokeWidth="1.5"
-            />
-          </g>
+          <rect
+            x="2"
+            y="2"
+            width="36"
+            height="36"
+            rx="4"
+            fill={selected ? 'url(#square-gradient)' : '#ffffff'}
+            stroke={selected ? '#0071e3' : '#e5e5e5'}
+            strokeWidth="1.5"
+          />
           {/* 渐变定义 */}
           <defs>
             <linearGradient
@@ -58,29 +57,41 @@ export function SquareNode({ data, selected, notHanle }: ShapeNodeProps) {
 
         {!notHanle && (
           <>
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Top}
               id="top"
-              style={{ ...style, left: '50%', top: 0 }}
+              style={{ left: '50%', top: 0 }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.topIcon}
             />
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Right}
               id="right"
-              style={{ ...style, right: 0, top: '50%' }}
+              style={{ right: 0, top: '50%' }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.rightIcon}
             />
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Bottom}
               id="bottom"
-              style={{ ...style, left: '50%', bottom: 0 }}
+              style={{ left: '50%', bottom: 0 }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.bottomIcon}
             />
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Left}
               id="left"
-              style={{ ...style, left: 0, top: '50%' }}
+              style={{ left: 0, top: '50%' }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.leftIcon}
             />
           </>
         )}

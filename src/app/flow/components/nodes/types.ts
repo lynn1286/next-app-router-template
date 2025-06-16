@@ -1,7 +1,13 @@
+import { ReactNode } from 'react';
+
 export interface ShapeNodeProps {
   data: {
     label?: string;
     isHovered?: boolean;
+    topIcon?: ReactNode;
+    rightIcon?: ReactNode;
+    bottomIcon?: ReactNode;
+    leftIcon?: ReactNode;
     [key: string]: unknown;
   };
   selected: boolean;

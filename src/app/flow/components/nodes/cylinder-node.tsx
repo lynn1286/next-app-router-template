@@ -1,6 +1,7 @@
 'use client';
 
-import { Handle, Position } from '@xyflow/react';
+import { Position } from '@xyflow/react';
+import { CustomHandle } from './custom-handle';
 import { ShapeNodeProps, getHandleStyle } from './types';
 
 export function CylinderNode({ data, selected, notHanle }: ShapeNodeProps) {
@@ -29,14 +30,21 @@ export function CylinderNode({ data, selected, notHanle }: ShapeNodeProps) {
           viewBox="0 0 40 40"
           preserveAspectRatio="xMidYMid meet"
         >
-          <g transform="translate(2, 2)">
-            <path
-              d="M0,4.5 L0,31.5 A18 4.5 0 1 0 36 31.5 L36,4.5 A18 4.5 0 1 1 0 4.5 A18 4.5 0 1 1 36 4.5 A18 4.5 0 1 1 0 4.5 z"
-              fill={selected ? 'url(#cylinder-gradient)' : '#ffffff'}
-              stroke={selected ? '#0071e3' : '#e5e5e5'}
-              strokeWidth="1.5"
-            />
-          </g>
+          <path
+            d="M4,8 C4,5.5 10.75,2 20,2 C29.25,2 36,5.5 36,8 L36,32 C36,34.75 29.25,38 20,38 C10.75,38 4,34.75 4,32 Z"
+            fill={selected ? 'url(#cylinder-gradient)' : '#ffffff'}
+            stroke={selected ? '#0071e3' : '#e5e5e5'}
+            strokeWidth="1.5"
+          />
+          <ellipse
+            cx="20"
+            cy="8"
+            rx="16"
+            ry="6"
+            fill={selected ? 'url(#cylinder-top-gradient)' : '#f6f6f6'}
+            stroke={selected ? '#0071e3' : '#e5e5e5'}
+            strokeWidth="1.5"
+          />
           {/* 渐变定义 */}
           <defs>
             <linearGradient
@@ -49,34 +57,56 @@ export function CylinderNode({ data, selected, notHanle }: ShapeNodeProps) {
               <stop offset="0%" stopColor="#ffffff" />
               <stop offset="100%" stopColor="#f0f0f5" />
             </linearGradient>
+            <linearGradient
+              id="cylinder-top-gradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="#f9f9f9" />
+              <stop offset="100%" stopColor="#f0f0f5" />
+            </linearGradient>
           </defs>
         </svg>
 
         {!notHanle && (
           <>
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Top}
               id="top"
-              style={{ ...style, left: '50%', top: 0 }}
+              style={{ left: '50%', top: 0 }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.topIcon}
             />
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Right}
               id="right"
-              style={{ ...style, right: 0, top: '50%' }}
+              style={{ right: 0, top: '50%' }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.rightIcon}
             />
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Bottom}
               id="bottom"
-              style={{ ...style, left: '50%', bottom: 0 }}
+              style={{ left: '50%', bottom: 0 }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.bottomIcon}
             />
-            <Handle
+            <CustomHandle
               type="source"
               position={Position.Left}
               id="left"
-              style={{ ...style, left: 0, top: '50%' }}
+              style={{ left: 0, top: '50%' }}
+              selected={selected}
+              isHovered={data.isHovered}
+              icon={data.leftIcon}
             />
           </>
         )}
